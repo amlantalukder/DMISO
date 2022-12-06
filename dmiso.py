@@ -257,3 +257,4 @@ elif is_valid_mi_seq_path and is_valid_m_seq_path:
             writeDataTableAsText(output, output_path, "a")
 
 print('Prediction complete !!')
+print('Please check the prediction results at ' + os.path.abspath(output_path))

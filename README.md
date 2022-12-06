@@ -41,7 +41,7 @@ EXECUTION
 
 	Example: "python3 dmiso.py -p examples/test_pairs.txt -o
 	examples/test_output.txt" OR "python3 dmiso.py -m examples/test_miRNAs.fa -t
-	examples/test_mRNAs.fa"
+	examples/test_mRNAs.fa -o examples/test_output.txt"
 
 
 Required inputs
