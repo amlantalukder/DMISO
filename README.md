@@ -57,13 +57,14 @@ The model file is stored under "models" directory.
 RESULTS
 ----------------------------------------------------------------------------------------------------------------------------------
 The result file contains the miRNA and target information provided in the input file followed by a prediction score and prediction value.
- 
+
+```
 miRNA ID	Target ID	miRNA Sequence	Target Sequence	Prediction Score	Prediction
 hsa-miR-7111-3p|MIMAT0028120	ENST00000569083.1_3|ENSG00000134419.15_7|RPS15A|protein_coding	UCCUCUUCUCCCUCCUCCCAG	CUUAAUUAAAAGAAGUUAAUGCUAAGAAUUUCUGUGGUGCAGUUUGACUUAAG	0.073714145	0
 hsa-miR-4286|MIMAT0016916	ENST00000338086.9_5|ENSG00000055917.16_9|PUM2|protein_coding	ACCCCACUCCUGGUACCA	GUAGAUUAUUGGAAGAUUUCAGAAACAACCGCUUCCCAAACCUUCAGCUUAGA	0.07340459	0
 hsa-miR-27a-3p|MIMAT0000084	ENST00000369158.1_2|ENSG00000203811.1_4|H3C14|protein_coding	UUCACAGUGGCUAAGUUCUUCU	CGGCAAGGCCCCGAGGAAGCAGCUGGCCACCAAGGCGGCCCGCAAGAGCGCGCCGG	0.99942267	1
 hsa-miR-8089|MIMAT0031016	ENST00000264658.11_7|ENSG00000108306.13_13|FBXL20|protein_coding	UGAGGUCAGGGGAUUGGGAUUC	GGCUCACGCCUGUAAUCCCAGCACUUUGGGAGGCCGAGGCGGGCGGAUCACAAAGUGUCAGGAGUUUGAGAACAG	0.9987809	1
-
+```
 
 LICENSE & CREDITS
 -------------------------------------------------------------------------------------------------
