@@ -11,13 +11,13 @@ It was developed by the computational System biology group at University of Cent
 
 INSTALLATION
 --------------------------------------------------------------------------------------------
-   (1) Install Python 3
-   (2) Install numpy, itertools, sklearn packages for Python 3.
+   1. Install Python 3
+   2. Install numpy, itertools, sklearn packages for Python 3.
 
 EXECUTION 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-   (1) You can run the software by running the script "dmiso.py" with the following command:
+   You can run the software by running the script "dmiso.py" with the following command:
    
    ----------------------------------------------------------------------------------------
    
