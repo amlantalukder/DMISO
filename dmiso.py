@@ -148,13 +148,14 @@ if not (is_valid_pair_path or (is_valid_mi_seq_path and is_valid_m_seq_path)):
 
 if output_path == '': output_path = os.path.join(os.path.dirname(pair_file_path), 'predictions_dmiso.txt')
 
-from keras.models import model_from_json
+from tensorflow.keras.models import model_from_json
 
 tool_path = os.path.dirname(os.path.realpath(__file__))
 model_path = os.path.join(tool_path, 'models/model_top')
 model = loadModel(model_path)
-_, len_mirna, _ = model.get_layer('mirna').output_shape
-_, len_target, _ = model.get_layer('target').output_shape
+
+_, len_mirna, _ = model.get_layer('mirna').output_shape[0]
+_, len_target, _ = model.get_layer('target').output_shape[0]
 
 header = [['miRNA ID', 'Target ID', 'miRNA Sequence', 'Target Sequence', 'Prediction Score', 'Prediction']]
 writeDataTableAsText(header, output_path)
@@ -178,7 +179,7 @@ if is_valid_pair_path:
                 interactions.append([mi_id, m_id, mi_seq, m_seq])
 
             X_mirnas, X_targets = processData(interactions)
-            y_pred_pp = model.predict([X_mirnas, X_targets])[:, 0]
+            y_pred_pp = model.predict([np.array(X_mirnas), np.array(X_targets)])[:, 0]
             y_pred = (y_pred_pp > 0.5).astype(int)
             output = np.c_[interactions, y_pred_pp, y_pred]
 
@@ -248,7 +249,7 @@ elif is_valid_mi_seq_path and is_valid_m_seq_path:
                         interactions.append([mi_id, m_id, mi_seq, m_sub_seq])
                     interactions.append([mi_id, m_id, mi_seq, m_seq])
             X_mirnas, X_targets = processData(interactions)
-            y_pred_pp = model.predict([X_mirnas, X_targets])[:, 0]
+            y_pred_pp = model.predict([np.array(X_mirnas), np.array(X_targets)])[:, 0]
             y_pred = (y_pred_pp > 0.5).astype(int)
             output = np.c_[interactions, y_pred_pp, y_pred]
             output = output[y_pred == 1]

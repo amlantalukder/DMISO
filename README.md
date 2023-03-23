@@ -11,8 +11,12 @@ It was developed by the computational System biology group at University of Cent
 
 INSTALLATION
 --------------------------------------------------------------------------------------------
-   1. Install Python 3
-   2. Install NumPy, itertools, Keras (2.3.1) packages for Python 3.
+   1. Install Python 3.7 or higher
+   2. Run the following to install necessary python packages
+		```
+		cd DMISO
+		make all
+		```
 
 EXECUTION 
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -39,9 +43,7 @@ EXECUTION
 	  -m MIRNA/ISOMIR  Path for miRNA or isomiR sequence in fasta format.
 	  -t MRNA          Path for mRNA sequence in fasta format.
 
-	Example: "python3 dmiso.py -p examples/test_pairs.txt -o
-	examples/test_output.txt" OR "python3 dmiso.py -m examples/test_miRNAs.fa -t
-	examples/test_mRNAs.fa -o examples/test_output.txt"
+	Example: "python3 dmiso.py -p examples/test_pairs.txt -o examples/test_output.txt" OR "python3 dmiso.py -m examples/test_miRNAs.fa -t examples/test_mRNAs.fa -o examples/test_output.txt"
 
 
 Required inputs
