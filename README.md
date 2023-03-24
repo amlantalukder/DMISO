@@ -49,7 +49,8 @@ EXECUTION
 	  -m MIRNA/ISOMIR  Path for miRNA or isomiR sequence in fasta format.
 	  -t MRNA          Path for mRNA sequence in fasta format.
 
-	Example: "python3 dmiso.py -p examples/test_pairs.txt -o examples/test_output.txt" OR "python3 dmiso.py -m examples/test_miRNAs.fa -t examples/test_mRNAs.fa -o examples/test_output.txt"
+	Example: "python3 dmiso.py -p examples/test_pairs.txt -o examples/test_output.txt" OR\
+		"python3 dmiso.py -m examples/test_miRNAs.fa -t examples/test_mRNAs.fa -o examples/test_output.txt"
 
 
 REQUIRED INPUTS
