@@ -1,8 +1,9 @@
 # DMISO
 
 Author: Amlan Talukder
-
 Date: August 1, 2021
+
+[![CI of DMISO](https://github.com/amlantalukder/DMISO/actions/workflows/ci.yml/badge.svg)](https://github.com/amlantalukder/DMISO/actions/workflows/ci.yml)
 
 DMISO is a software used to predict interaction between the provided miRNA and target sequences. 
 It was also trained to predict interaction between isomiR and their target sequences. 
