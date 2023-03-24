@@ -83,7 +83,7 @@ plase contact Xiaoman (Shawn) Li (xiaoman@mail.ucf.edu) for further information.
 CONTACT INFO
 -------------------------------------------------------------------------------------------------
 If you are encountering any problem regarding to DMISO, please refer the manual first.
-If problem still can not be solved, please feel free to contact us:
-Amlan Talukder (amlan@knights.ucf.edu)
-Haiyan (Nancy) Hu (haihu@cs.ucf.edu)
+If problem still can not be solved, please feel free to contact us:\
+Amlan Talukder (amlan@knights.ucf.edu)\
+Haiyan (Nancy) Hu (haihu@cs.ucf.edu)\
 Xiaoman (Shawn) Li (xiaoman@mail.ucf.edu)
