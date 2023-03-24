@@ -1,0 +1,21 @@
+name: CI of DMISO
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python version
+        uses: actions/setup-python@v3.0.0
+        with:
+          python-version: "3.7"
+      - name: Create and start virtual environment
+        run: |
+          python -m venv venv_dmiso_3_7
+          source venv_dmiso_3_7/bin/activate
+      - name: Install dependencies
+        run: make install
+      - name: Test on toy examples
+        run: make test
