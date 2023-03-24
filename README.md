@@ -46,7 +46,7 @@ EXECUTION
 	Example: "python3 dmiso.py -p examples/test_pairs.txt -o examples/test_output.txt" OR "python3 dmiso.py -m examples/test_miRNAs.fa -t examples/test_mRNAs.fa -o examples/test_output.txt"
 
 
-Required inputs
+REQUIRED INPUTS
 ---------------------------------------------------------------------------------------------
 The tool takes a file path as mandatory parameter. The file must contain miRNA id, target id, miRNA sequence and target sequence in the tab delimited format.
 Alternatively, it can take separate files for miRNA/isomiR and target sequences and outputs all the possible interactions.
