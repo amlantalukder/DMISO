@@ -1,6 +1,7 @@
 import numpy as np
 import sys, os, argparse, getopt, pdb
 from itertools import islice
+from tqdm import tqdm
 
 # -----------------------------------------------
 def writeFile(data, filename, mode="w"):
@@ -15,13 +16,13 @@ def writeFile(data, filename, mode="w"):
     fl.close()
 
 # -----------------------------------------------
-def writeDataTableAsText(data, filename, mode="w"):
-    text = formatDataTable(data, "\t", "\n")
+def writeTable(data, filename, mode="w"):
+    text = formatTable(data, "\t", "\n")
 
     writeFile(text, filename, mode)
 
 # -----------------------------------------------
-def formatDataTable(data, col_sep="\t", row_sep="\n"):
+def formatTable(data, col_sep="\t", row_sep="\n"):
     return row_sep.join([col_sep.join([str(item1) for item1 in item]) for item in data])
 
 # -----------------------------------------------------------------
@@ -158,7 +159,7 @@ _, len_mirna, _ = model.get_layer('mirna').output_shape[0]
 _, len_target, _ = model.get_layer('target').output_shape[0]
 
 header = [['miRNA ID', 'Target ID', 'miRNA Sequence', 'Target Sequence', 'Prediction Score', 'Prediction']]
-writeDataTableAsText(header, output_path)
+writeTable(header, output_path)
 
 if is_valid_pair_path:
 
@@ -184,7 +185,7 @@ if is_valid_pair_path:
             output = np.c_[interactions, y_pred_pp, y_pred]
 
             writeFile("\n", output_path, "a")
-            writeDataTableAsText(output, output_path, "a")
+            writeTable(output, output_path, "a")
 
 elif is_valid_mi_seq_path and is_valid_m_seq_path:
 
@@ -240,22 +241,28 @@ elif is_valid_mi_seq_path and is_valid_m_seq_path:
                         seq = ''.join(lines[1:-1])
                         m_info[id] = seq.upper()
 
-            interactions = []
-            for mi_id, mi_seq in mi_info.items():
-                for m_id, m_seq in m_info.items():
-                    while len(m_seq) > len_target*1.5:
-                        m_sub_seq = m_seq[:len_target]
-                        m_seq = m_seq[len_target:]
-                        interactions.append([mi_id, m_id, mi_seq, m_sub_seq])
-                    interactions.append([mi_id, m_id, mi_seq, m_seq])
-            X_mirnas, X_targets = processData(interactions)
-            y_pred_pp = model.predict([np.array(X_mirnas), np.array(X_targets)])[:, 0]
-            y_pred = (y_pred_pp > 0.5).astype(int)
-            output = np.c_[interactions, y_pred_pp, y_pred]
-            output = output[y_pred == 1]
+                    interactions = []
+                    
+                    print('Loading chunks ...')
+                    for mi_id, mi_seq in tqdm(mi_info.items()):
+                        for m_id, m_seq in m_info.items():
+                            while len(m_seq) > len_target*1.5:
+                                m_sub_seq = m_seq[:len_target]
+                                m_seq = m_seq[len_target:]
+                                interactions.append([mi_id, m_id, mi_seq, m_sub_seq])
+                            interactions.append([mi_id, m_id, mi_seq, m_seq])
 
-            writeFile("\n", output_path, "a")
-            writeDataTableAsText(output, output_path, "a")
+                    print(f'Total candidates in this chunk: miRNAs/isomiRs: {len(mi_info)}, targets: {len(m_info)}')
+
+                    print('Running DMISO on the candidates ...')
+                    X_mirnas, X_targets = processData(interactions)
+                    y_pred_pp = model.predict([np.array(X_mirnas), np.array(X_targets)])[:, 0]
+                    y_pred = (y_pred_pp > 0.5).astype(int)
+                    output = np.c_[interactions, y_pred_pp, y_pred]
+                    output = output[y_pred == 1]
+
+                    writeFile("\n", output_path, "a")
+                    writeTable(output, output_path, "a")
 
 print('Prediction complete !!')
 print('Please check the prediction results at ' + os.path.abspath(output_path))
