@@ -1,8 +1,9 @@
 # DMISO
 
-Author: Amlan Talukder
-
+Author: Amlan Talukder\
 Date: August 1, 2021
+
+[![CI of DMISO](https://github.com/amlantalukder/DMISO/actions/workflows/ci.yml/badge.svg)](https://github.com/amlantalukder/DMISO/actions/workflows/ci.yml)
 
 DMISO is a software used to predict interaction between the provided miRNA and target sequences. 
 It was also trained to predict interaction between isomiR and their target sequences. 
@@ -48,7 +49,8 @@ EXECUTION
 	  -m MIRNA/ISOMIR  Path for miRNA or isomiR sequence in fasta format.
 	  -t MRNA          Path for mRNA sequence in fasta format.
 
-	Example: "python3 dmiso.py -p examples/test_pairs.txt -o examples/test_output.txt" OR "python3 dmiso.py -m examples/test_miRNAs.fa -t examples/test_mRNAs.fa -o examples/test_output.txt"
+	Example: "python3 dmiso.py -p examples/test_pairs.txt -o examples/test_output.txt" OR
+		"python3 dmiso.py -m examples/test_miRNAs.fa -t examples/test_mRNAs.fa -o examples/test_output.txt"
 
 
 REQUIRED INPUTS
@@ -82,7 +84,7 @@ plase contact Xiaoman (Shawn) Li (xiaoman@mail.ucf.edu) for further information.
 CONTACT INFO
 -------------------------------------------------------------------------------------------------
 If you are encountering any problem regarding to DMISO, please refer the manual first.
-If problem still can not be solved, please feel free to contact us:
-Amlan Talukder (amlan@knights.ucf.edu)
-Haiyan (Nancy) Hu (haihu@cs.ucf.edu)
+If problem still can not be solved, please feel free to contact us:\
+Amlan Talukder (amlan@knights.ucf.edu)\
+Haiyan (Nancy) Hu (haihu@cs.ucf.edu)\
 Xiaoman (Shawn) Li (xiaoman@mail.ucf.edu)
