@@ -15,12 +15,12 @@ INSTALLATION
    1. Install Python 3.7 or higher
    2. Create a virtual environment (optional but preferred)
 		```
-		python -m venv ~/.venv_dmiso_3_7
-		source ~/.venv_dmiso_3_7/bin/activate
+		cd DMISO
+		python -m venv ./.venv
+		source ./.venv/bin/activate
 		```
    3. Run the following to install necessary python packages
 		```
-		cd DMISO
 		make all
 		```
 
