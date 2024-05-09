@@ -13,8 +13,8 @@ jobs:
           python-version: "3.7"
       - name: Create and start virtual environment
         run: |
-          python -m venv venv_dmiso_3_7
-          source venv_dmiso_3_7/bin/activate
+          python -m venv ./.venv
+          source ./.venv/bin/activate
       - name: Install dependencies
         run: make install
       - name: Test on toy examples
